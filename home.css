@@ -120,11 +120,12 @@ body {
 }
 
 button {
-	padding: 10px 15px;
+	padding: 7px 12px;
 	color: #FFFFFF;
 	font-size: 16px;
 	background-color: #FF9933;
 	border: none;
+	border-radius: 10px;
 }
 
 button:hover {
@@ -142,6 +143,10 @@ button:hover {
 
 .circle-outer-container {
 	position: relative;
+}
+
+div.hidden {
+	display: none;
 }
 
 .circle-container {
@@ -198,12 +203,25 @@ h1 {
 }
 
 .background-container {
-	width: 100%;
+	width: 90%;
 }
 
 .daily-deals-container {
 	margin-top: 200px;
 	width: 1030px;
+}
+
+.no-reveal {
+}
+
+.reveal {
+	-webkit-animation: reveal 1.5s ease .25s 1 both;
+	animation: reveal 1.5s ease .25s 1 both;
+}
+
+@keyframes reveal {
+	0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px);}
+	100%{opacity:1;-webkit-transform:translateY(0px);transform:translateY(0px);}
 }
 
 .deal {

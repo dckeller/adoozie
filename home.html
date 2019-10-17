@@ -2,10 +2,12 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
 	<title>Adoozie Home</title>
+	<link rel="stylesheet" type="text/css" href="home.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-<link rel="stylesheet" type="text/css" href="home.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
 	<!-- SHOPPING -->
 	<div class="shopping-container">
@@ -17,8 +19,11 @@
 		<!-- BEGIN HEADER -->
 		<div class="header-container">
 			<div class="logo">
-				<img src="http://merchant.linksynergy.com/fs/banners/13550/13550_10037736.png">
+				<img src="http://merchant.linksynergy.com/fs/banners/13550/13550_10037781.png">
 			</div>
+			<!--div class="phone">
+				<i class="fa fa-phone" style="font-size:20px; color: #FFFFFF;"> <span style="font-family: Arial, Helvetica, sans-serif;">(801) 545-7687</span></i>
+			</div-->
 			
 
 			<!-- BEGIN LINKS -->
@@ -75,19 +80,19 @@
 			<!-- BEGIN HERO IMAGE -->
 			<div class="hero-image">
 				<div class="hero-text">
-					<h1 style="font-size:50px; color: #FFFFFF">Come Away With Me</h1>
-					<h3>Shop and spend lots of money</h3>
-					<button>Start Here</button>
+					<h1 style="font-size:50px; color: #FFFFFF">Come Away With Us</h1>
+					<h2>Dream big, travel wide, and let us help you get there</h2>
+					<button>Start Exploring</button>
 				</div>
 				<video id="premov" muted autoplay loop>
-				      <source type="video/mp4" src="video.mp4"></source>
-				      Your browser does not support the video tag.
+					<source type="video/mp4" src="video.mp4"></source>
+					Your browser does not support the video tag.
 				</video> 
 			</div>
 
 
 			<!-- BEGIN CIRCLES -->
-			<div class="circle-outer-container">
+			<div class="circle-outer-container hidden">
 				<div class="circle-container">
 					<div class="circle one"></div>
 					<div class="circle two"></div>
@@ -97,7 +102,7 @@
 
 			<!-- BEGIN DAILY DEALS -->
 			<div class="background-container">
-				<div class="daily-deals-container">
+				<div class="daily-deals-container no-reveal">
 					<p style="font-size: 30px; margin-bottom: 0; color: #333333">DAILY DEALS</p>
 					<div class="deal deal-one">
 						<img src="http://merchant.linksynergy.com/fs/banners/13550/13550_10037732.png">
@@ -159,5 +164,39 @@
 				<p>Made with <span style="color: #FF9933">&hearts;</span> by David & Meredith</p>
 			</div>
 		</center>
+
+		<script type="text/javascript">
+			var animateHTML = function () {
+				var elems,
+				windowHeight
+
+				var init = function () {
+					elems = document.querySelectorAll('.no-reveal')
+					windowHeight = window.innerHeight
+					_addEventHandlers()
+				}
+				var _addEventHandlers = function () {
+					window.addEventListener('scroll', _checkPosition)
+					window.addEventListener('resize', init)
+					window.addEventListener('load', _checkPosition)
+				}
+				var _checkPosition = function () {
+					for (var i = 0; i < elems.length; i++) {
+						var posFromTop = elems[i].getBoundingClientRect().top
+						if (posFromTop - windowHeight <= 0) {
+							elems[i].className = elems[i].className.replace('no-reveal', 'reveal')
+						}
+					}
+				}
+				return {
+					init: init
+				}
+			}
+			animateHTML().init()
+
+			$(document).ready(function () {
+				$('.circle-outer-container').fadeIn(2000).removeClass('hidden');
+			});
+		</script>
 	</body>
 	</html>
